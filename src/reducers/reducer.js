@@ -1,12 +1,11 @@
 import { FETCH_MASTER } from '../actions'
 
-const initialState = {
-}
+const initialState = null
 
 export default function(state = initialState, action){
   switch (action.type) { 
     case FETCH_MASTER: 
-      return Object.assign({}, {...state, ...action.payload.data})
+      return {...state, ...action.payload.data}
   }
     
   return state
