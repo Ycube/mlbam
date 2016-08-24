@@ -1,6 +1,6 @@
 body {
   background: url(http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg);
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 div {
@@ -28,7 +28,15 @@ div {
   white-space: normal;
 }
 
+
 #active {
-  color: red;
   transform: scale(1.25);
+}
+
+#active h6 {
+  margin: 5px 0 5px 0;
+}
+
+#hidden h6{
+  display: none
 }

@@ -12,7 +12,7 @@ const GameStamp = ( props ) => {
   
   return (
     <div className='GameStamp' id={props.id} style={style} key={game.location} onClick={props.onClick}>
-      <h5> {awayTeam} @ {homeTeam} </h5>
+      <h6> {awayTeam} @ {homeTeam} </h6>
       <img src={imgData} />
       <h6> Win: {winningPitcher} </h6>
       <h6> Loss: {losingPitcher} </h6>
