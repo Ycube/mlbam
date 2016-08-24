@@ -1,0 +1,29 @@
+body {
+  background: url(http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg)
+}
+
+div {
+  color: white
+}
+
+.container {
+  width: 100%;
+  height: 25%;
+  margin: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.Carousel {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.GameStamp {
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+  white-space: normal;
+}

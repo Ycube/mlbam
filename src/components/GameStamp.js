@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { style } from '../../style/style.css'
+
 const GameStamp = ({game}) => {
 
   const homeTeam = game.home_team_name
@@ -9,10 +11,11 @@ const GameStamp = ({game}) => {
   const imgData = game.video_thumbnail
   
   return (
-    <div key={game.location}>
-      <h4> {awayTeam} @ {homeTeam} </h4>
+    <div className='GameStamp' style={style} key={game.location}>
+      <h5> {awayTeam} @ {homeTeam} </h5>
       <img src={imgData} />
-      <h6> Win:{winningPitcher} Loss:{losingPitcher} </h6>
+      <h6> Win: {winningPitcher} </h6>
+      <h6> Loss: {losingPitcher} </h6>
     </div>
   )
 }
