@@ -2,8 +2,8 @@ import React from 'react'
 
 import { style } from '../../style/style.css'
 
-const GameStamp = ({game}) => {
-
+const GameStamp = ( props ) => {
+  const { game } = props
   const homeTeam = game.home_team_name
   const winningPitcher = game.winning_pitcher.first +' '+ game.winning_pitcher.last
   const losingPitcher = game.losing_pitcher.first +' '+ game.losing_pitcher.last
@@ -11,7 +11,7 @@ const GameStamp = ({game}) => {
   const imgData = game.video_thumbnail
   
   return (
-    <div className='GameStamp' style={style} key={game.location}>
+    <div className='GameStamp' id={props.id} style={style} key={game.location} onClick={props.onClick}>
       <h5> {awayTeam} @ {homeTeam} </h5>
       <img src={imgData} />
       <h6> Win: {winningPitcher} </h6>
