@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 
 import GameStamp from './GameStamp'
 
@@ -11,55 +12,62 @@ export class Carousel extends Component {
     }
 
     this.handlePress = this.handlePress.bind(this);
-    this.updateIndex = this.updateIndex.bind(this)
+    this.getIndex = this.getIndex.bind(this)
   }
 
+  componentDidMount() {
+    window.addEventListener('keydown', this.handlePress)
+  }
 
-  //helper to update the selectedIndex
-
-  updateIndex(value) {
+  componentWillUnMount() {
+    window.removeEventListener('keydown')
+  }
+  
+  getIndex(direction) {
+    const value = this.state.selectedIndex
     const length = this.props.gameData.data.games.game.length
-    console.log('value:', value)
-    if (value < length) {
-      return value += 1
-    } else if (value > length) {
-      return value = 0
-    } else {
-      return value = 0
-    }
-    // switch(value) {
-      // case value === length : return value = 0
-      // case value < length : return value++        
-      // case value === 0 : return value+=1
-      // default : return value = 0 
-    // }
-  }
 
-  handlePress() {
-    console.log('OLD INDEX: ', this.state.selectedIndex)
-    this.setState({
-      selectedIndex : this.updateIndex(this.state.selectedIndex)
-    })
-    console.log('new index: ',this.state.selectedIndex)
+    switch(direction) {
+      case 'left' :
+        return value === 0 ? length-1 : value-1
+      case 'right' :
+        return value === length-1 ? 0 : value+1
+      default :
+        return value
+    }
+  }
+  
+  handlePress(e) {
+    if (e.keyCode === 39) {
+      //move forward a gameStamp
+     this.setState({
+        selectedIndex : this.getIndex('right')
+      })
+    } else if (e.keyCode === 37) {
+      //move back a gameStamp
+      this.setState({
+        selectedIndex : this.getIndex('left')
+      })
+    }
+   
   }
 
   render() {
 
     if (!this.props.gameData) {
       return (
-        <div> Loading Data</div>
+        <div>Loading Data</div>
       )
     }
     
     return (
       <div className='Carousel'>
-
         { this.props.gameData.data.games.game.map((value, key) => 
           <GameStamp 
-            id={key === this.state.selectedIndex ? 'active' : '' }
+            id={key === this.state.selectedIndex ? 'active' : 'hidden' }
             game={value} 
             key={key} 
-            onClick={ this.handlePress } />) } 
+             />) } 
         {/* end  of .map */}
       </div>
     )
