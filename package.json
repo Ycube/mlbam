@@ -9,7 +9,7 @@
   "scripts": {
     "start": "nodemon webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall" : "webpack -p"
+    "postinstall" : "./node_modules/.bin/webpack -p"
   },
   "author": "Yale Y Yuen",
   "license": "ISC",
