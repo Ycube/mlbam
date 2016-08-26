@@ -4,7 +4,7 @@
   "description": "mlbam coding challenge",
   "main": "index.js",
   "engines": {
-    "node"
+    "node" : "6.2.2"
   },
   "scripts": {
     "start": "nodemon webpack",
