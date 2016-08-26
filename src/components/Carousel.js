@@ -11,7 +11,7 @@ export class Carousel extends Component {
       selectedIndex : 0
     }
 
-    this.handlePress = this.handlePress.bind(this);
+    this.handlePress = this.handlePress.bind(this)
     this.getIndex = this.getIndex.bind(this)
   }
 
@@ -66,7 +66,8 @@ export class Carousel extends Component {
           <GameStamp 
             id={key === this.state.selectedIndex ? 'active' : 'hidden' }
             game={value} 
-            key={key} 
+            key={key}
+            ref={key}
              />) } 
         {/* end  of .map */}
       </div>
