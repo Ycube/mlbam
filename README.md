@@ -5,6 +5,7 @@
 
 ### Start
 - npm start
+- go to localhost:4040
 
 ### Todo
 - Add Form for different dates
