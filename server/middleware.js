@@ -7,12 +7,13 @@ import history from 'connect-history-api-fallback'
 
 export default function (app) {
   if (process.env.NODE_ENV !== 'production') {
-    const webpack = require('webpack');
-    const webpackConfig = require('../webpack.config');
-    const compiler = webpack(webpackConfig);
-    const { webpackDevMiddleware, webpackHotMiddleware } = require('./webpackDev');
-    app.use(webpackDevMiddleware(webpackConfig, compiler));
-    app.use(webpackHotMiddleware(compiler));  
+    const webpack = require('webpack')
+    const webpackConfig = require('../webpack.config')
+    const compiler = webpack(webpackConfig)
+    const { webpackDevMiddleware, webpackHotMiddleware } = require('./webpackDev')
+    app.use(cors())
+    app.use(webpackDevMiddleware(webpackConfig, compiler))
+    app.use(webpackHotMiddleware(compiler))
   }
   app.use(cors())
   app.use(logger('dev'))
