@@ -59,7 +59,7 @@ export class Carousel extends Component {
         <div>Loading Data</div>
       )
     }
-    
+
     return (
       <div className='Carousel'>
         { this.props.gameData.data.games.game.map((value, key) => 
