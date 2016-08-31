@@ -19,15 +19,20 @@ export class GameStamp extends Component {
     const { game } = this.props
     const homeTeam = game.home_team_name
     const awayTeam = game.away_team_name
-    const imgData = game.video_thumbnail
+    let imgData = game.video_thumbnail
 
     // when game has not occured yet
     if (!game.winning_pitcher) {
-      // imgData = 
+      imgData = 'http://mlb.mlb.com/documents/8/0/4/111192804/mlb_logo_prod3_1_fqk7toel.svg'
+      let timeZone = game.tz_hm_lg_gen
+      let timeDate = game.time_hm_lg
+      let venue = game.venue
       return (
         <div className='GameStamp' id={this.props.id} style={style} key={game.location}> 
           <h6> {awayTeam} @ {homeTeam} </h6>
           <img src={imgData} />
+          <h6> {venue}</h6>
+          <h6> {timeDate} {timeZone} </h6>
         </div>
       )
     } else {

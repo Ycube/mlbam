@@ -37,5 +37,5 @@ div {
 }
 
 #hidden h6{
-  display: none
+  display: block;
 }
