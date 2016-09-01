@@ -42,3 +42,7 @@ div {
 #hidden h6{
   display: block;
 }
+
+#hidden {
+  cursor: pointer;
+}

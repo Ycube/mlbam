@@ -16,7 +16,7 @@ export class GameStamp extends Component {
   }
 
   render() {
-    const { game } = this.props
+    const { game, onClick } = this.props
     const homeTeam = game.home_team_name
     const awayTeam = game.away_team_name
     let imgData = game.video_thumbnail
@@ -28,7 +28,7 @@ export class GameStamp extends Component {
       let timeDate = game.time_hm_lg
       let venue = game.venue
       return (
-        <div className='GameStamp' id={this.props.id} style={style} key={game.location}> 
+        <div onClick={onClick} className='GameStamp' id={this.props.id} style={style} key={game.location}> 
           <h6> {awayTeam} @ {homeTeam} </h6>
           <img src={imgData} />
           <h6> {venue}</h6>
@@ -41,7 +41,7 @@ export class GameStamp extends Component {
       const losingPitcher = game.losing_pitcher.first +' '+ game.losing_pitcher.last
 
       return (
-        <div className='GameStamp' id={this.props.id} style={style} key={game.location}>
+        <div onClick={onClick} className='GameStamp' id={this.props.id} style={style} key={game.location}>
           <h6> {awayTeam} @ {homeTeam} </h6>
           <img src={imgData} />
           <h6> Win: {winningPitcher} </h6>

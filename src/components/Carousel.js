@@ -12,6 +12,7 @@ export class Carousel extends Component {
     }
 
     this.handlePress = this.handlePress.bind(this)
+    this.handleClick = this.handleClick.bind(this)
     this.getIndex = this.getIndex.bind(this)
   }
 
@@ -23,6 +24,12 @@ export class Carousel extends Component {
     window.removeEventListener('keydown')
   }
   
+  handleClick(index) {
+    return () => {
+      this.setState({ selectedIndex: index });
+    }
+  } 
+
   getIndex(direction) {
     const value = this.state.selectedIndex
     const length = this.props.gameData.data.games.game.length
@@ -65,9 +72,9 @@ export class Carousel extends Component {
         { this.props.gameData.data.games.game.map((value, key) => 
           <GameStamp 
             id={key === this.state.selectedIndex ? 'active' : 'hidden' }
-            game={value} 
+            game={value}
+            onClick={this.handleClick(key)}
             key={key}
-            ref={key}
              />) } 
         {/* end  of .map */}
       </div>
