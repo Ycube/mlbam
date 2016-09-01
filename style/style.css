@@ -23,10 +23,13 @@ div {
 .GameStamp {
   display: inline-block;
   position: relative;
-  padding: 10px;
+  padding: 20px;
   white-space: normal;
 }
 
+.GameStamp img {
+  width: 130px;
+}
 
 #active {
   transform: scale(1.25);

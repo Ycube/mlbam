@@ -19,7 +19,7 @@ export class DatePicker extends Component {
     //TODO: change this to fetch todays date
     let today = new Date();
     let dd = today.getDate();
-    let mm = today.getMonth()+1; //January is 0!
+    let mm = today.getMonth() + 1; //January is 0!
     let yyyy = today.getFullYear();
 
     if(dd<10) {

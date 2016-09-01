@@ -43,7 +43,9 @@ module.exports = {
       { test: /\.css$/, loader: "style-loader!css-loader" }
     ]
   },
-  plugins: [HTMLWebpackPluginConfig],
+  plugins: [HTMLWebpackPluginConfig].concat(
+    isProduction ? [productionPlugin] : []
+  ),
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
